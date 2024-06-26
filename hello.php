@@ -25,6 +25,6 @@ function hello_world_plugin_menu() {
 
 // Display the admin page content
 function hello_world_plugin_page_content() {
-    echo '<h1>Hello, World! HI</h1>';
+    echo '<h1>Hello, World! Hello</h1>';
 }
 ?>

@@ -1,6 +1,6 @@
 {
-    "new_version": "1.1",
-    "package": "https://github.com/acalvindesign/testplugin/releases/download/v1.1/my-plugin.zip",
+    "new_version": "1.2",
+    "package": "https://github.com/acalvindesign/testplugin/blob/main/TestingWPpluginAlliekaruban.zip",
     "update_message": "A new version of the plugin is available. Please update to get the latest features and fixes."
   }
   
