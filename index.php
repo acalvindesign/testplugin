@@ -3,14 +3,14 @@
 Plugin Name: My Plugin
 Plugin URI: https://example.com/my-plugin
 Description: testing.
-Version: 1.5.2
+Version: 1.5.3
 Author: Allie
 Author URI: https://example.com
 License: GPL2
 */
 
 function my_plugin_update_check() {
-    $current_version = '1.5.2'; // Current plugin version
+    $current_version = '1.5.3'; // Current plugin version
     $update_check_url = 'https://raw.githubusercontent.com/acalvindesign/testplugin/main/update.json';
 
     $response = wp_remote_get($update_check_url);
