@@ -3,7 +3,7 @@
 Plugin Name: Database Tables Plugin
 Plugin URI: http://example.com/database-tables-plugin
 Description: A simple plugin that displays all database table names in the WordPress admin dashboard with pagination.
-Version: 1.7
+Version: 1.8
 Author: Your Name
 Author URI: http://example.com
 License: GPL2
