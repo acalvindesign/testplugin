@@ -3,12 +3,16 @@
 Plugin Name: My Plugin
 Plugin URI: https://example.com/my-plugin
 Description: testing.
-Version: 1.5.3
+Version: 1.6
 Author: Allie
 Author URI: https://example.com
 License: GPL2
 */
+// Include Hello World functionality
+require_once plugin_dir_path(__FILE__) . 'hello-world.php';
 
+// Include Database Tables functionality
+require_once plugin_dir_path(__FILE__) . 'database-tables.php';
 function my_plugin_update_check() {
     $current_version = '1.5.3'; // Current plugin version
     $update_check_url = 'https://raw.githubusercontent.com/acalvindesign/testplugin/main/update.json';
