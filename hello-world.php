@@ -3,7 +3,7 @@
 Plugin Name: Hello World Plugin
 Plugin URI: http://example.com/hello-world-plugin
 Description: A simple plugin that displays "Hello, World!" in the WordPress admin dashboard.
-Version: 1.8
+Version: 0.1
 Author: Your Name
 Author URI: http://example.com
 License: GPL2
@@ -25,6 +25,6 @@ function hello_world_plugin_menu() {
 
 // Display the admin page content
 function hello_world_plugin_page_content() {
-    echo '<h1>Hello, World! Hello its me v5</h1>';
+    echo '<h1>Hello, World! Hello its me v0.1</h1>';
 }
 ?>

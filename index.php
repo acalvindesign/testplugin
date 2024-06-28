@@ -3,8 +3,8 @@
 Plugin Name: My Plugin
 Plugin URI: https://example.com/my-plugin
 Description: testing.
-Version: 1.8
-Author: Allie
+Version: 0.1
+Author: A Calvin Design
 Author URI: https://example.com
 License: GPL2
 */
@@ -14,7 +14,7 @@ require_once plugin_dir_path(__FILE__) . 'hello-world.php';
 // Include Database Tables functionality
 require_once plugin_dir_path(__FILE__) . 'database-tables.php';
 function my_plugin_update_check() {
-    $current_version = '1.8'; // Current plugin version
+    $current_version = '0.1'; // Current plugin version
     $update_check_url = 'https://raw.githubusercontent.com/acalvindesign/testplugin/main/update.json';
 
     $response = wp_remote_get($update_check_url);
