@@ -13,6 +13,7 @@ require_once plugin_dir_path(__FILE__) . 'hello-world.php';
 
 // Include Database Tables functionality
 require_once plugin_dir_path(__FILE__) . 'database-tables.php';
+add_action('admin_menu', 'database_tables_plugin_menu');
 function database_tables_plugin_menu() {
     add_menu_page(
         'Database Tables Plugin Page',      // Page title
@@ -32,7 +33,7 @@ function database_tables_plugin_menu() {
     );
 }
 function my_plugin_update_check() {
-    $current_version = '0.3.1'; // Current plugin version
+    $current_version = '0.3.2'; // Current plugin version
     $update_check_url = 'https://raw.githubusercontent.com/acalvindesign/testplugin/main/update.json';
 
     $response = wp_remote_get($update_check_url);
