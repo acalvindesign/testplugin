@@ -1,37 +1,4 @@
 <?php
-/*
-Plugin Name: Database Tables Plugin
-Plugin URI: http://example.com/database-tables-plugin
-Description: A simple plugin that displays all database table names in the WordPress admin dashboard with pagination.
-Version: 0.2
-Author: Your Name
-Author URI: http://example.com
-License: GPL2
-*/
-
-// Hook for adding admin menus
-add_action('admin_menu', 'database_tables_plugin_menu');
-
-// Action function for the above hook
-function database_tables_plugin_menu() {
-    add_menu_page(
-        'Database Tables Plugin Page',      // Page title
-        'Database Tables',                  // Menu title
-        'manage_options',                   // Capability
-        'database-tables-plugin',           // Menu slug
-        'database_tables_plugin_page_content' // Function to display the page content
-    );
-    
-    add_submenu_page(
-        'database-tables-plugin',
-        'Update Plugin',                  // Page title
-        'Update Plugin',                  // Menu title
-        'manage_options',                 // Capability
-        'update-database-tables-plugin',  // Menu slug
-        'update_database_tables_plugin_page' // Function to display the page content
-    );
-}
-
 // Display the admin page content
 function database_tables_plugin_page_content() {
     global $wpdb; // Access the global $wpdb object
@@ -160,38 +127,3 @@ function display_pagination($current_page, $total_pages, $base_url) {
     echo '</div></div>';
 }
 
-// Function to display the update plugin page
-function update_database_tables_plugin_page() {
-    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['plugin_zip'])) {
-        // Handle the file upload
-        $uploaded_file = $_FILES['plugin_zip'];
-        if ($uploaded_file['error'] == UPLOAD_ERR_OK) {
-            $upload_dir = wp_upload_dir();
-            $upload_file = $upload_dir['path'] . '/' . basename($uploaded_file['name']);
-            
-            if (move_uploaded_file($uploaded_file['tmp_name'], $upload_file)) {
-                $zip = new ZipArchive;
-                if ($zip->open($upload_file) === TRUE) {
-                    $zip->extractTo(plugin_dir_path(__FILE__));
-                    $zip->close();
-                    echo '<div class="notice notice-success is-dismissible"><p>Plugin updated successfully.</p></div>';
-                } else {
-                    echo '<div class="notice notice-error is-dismissible"><p>Failed to extract the ZIP file.</p></div>';
-                }
-                unlink($upload_file); // Clean up the uploaded ZIP file
-            } else {
-                echo '<div class="notice notice-error is-dismissible"><p>Failed to move the uploaded file.</p></div>';
-            }
-        } else {
-            echo '<div class="notice notice-error is-dismissible"><p>Failed to upload the file.</p></div>';
-        }
-    }
-
-    echo '<div class="wrap">';
-    echo '<h1>Update Plugin</h1>';
-    echo '<form method="post" enctype="multipart/form-data">';
-    echo '<input type="file" name="plugin_zip" required>';
-    echo '<input type="submit" value="Upload" class="button button-primary">';
-    echo '</form>';
-    echo '</div>';
-}
