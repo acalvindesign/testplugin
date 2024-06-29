@@ -1,3 +1,3 @@
 # testplugin
-testing updates 4
+testing updates 0.2
 # testplugin

@@ -3,7 +3,7 @@
 Plugin Name: My Plugin
 Plugin URI: https://example.com/my-plugin
 Description: testing.
-Version: 0.1
+Version: 0.2
 Author: A Calvin Design
 Author URI: https://example.com
 License: GPL2
