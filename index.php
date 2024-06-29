@@ -3,7 +3,7 @@
 Plugin Name: My Plugin
 Plugin URI: https://example.com/my-plugin
 Description: testing.
-Version: 0.3
+Version: 0.3.1
 Author: A Calvin Design
 Author URI: https://example.com
 License: GPL2
@@ -13,8 +13,6 @@ require_once plugin_dir_path(__FILE__) . 'hello-world.php';
 
 // Include Database Tables functionality
 require_once plugin_dir_path(__FILE__) . 'database-tables.php';
-// Hook for adding admin menus
-add_action('admin_menu', 'database_tables_plugin_menu');
 function database_tables_plugin_menu() {
     add_menu_page(
         'Database Tables Plugin Page',      // Page title
@@ -25,6 +23,7 @@ function database_tables_plugin_menu() {
     );
     
     add_submenu_page(
+        'database-tables-plugin',
         'Hello World Plugin Page',        // Page title
         'Hello World',                    // Menu title
         'manage_options',                 // Capability
@@ -33,7 +32,7 @@ function database_tables_plugin_menu() {
     );
 }
 function my_plugin_update_check() {
-    $current_version = '0.3'; // Current plugin version
+    $current_version = '0.3.1'; // Current plugin version
     $update_check_url = 'https://raw.githubusercontent.com/acalvindesign/testplugin/main/update.json';
 
     $response = wp_remote_get($update_check_url);
